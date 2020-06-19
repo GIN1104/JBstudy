@@ -24,11 +24,11 @@ let printUsers = (users) => {
     for( user of users){
     
      strUser +=  `<div class="card p-4 m-4" style="width: 18rem;">`
-     strUser += `<h5 class="card-title">${user.name}</h5>`
+     strUser += `<h5 class="card-title">Name : ${user.name}</h5>`
      strUser += `<p class="card-text">ID : ${user.id}</p>`
      strUser += `<p class="card-text">Username : ${user.username}</p>`
-     strUser += `<p class="card-text">${user.phone}</p>`
-     strUser += `<p class="card-text">${user.email}</p>`
+     strUser += `<p class="card-text">Phone : ${user.phone}</p>`
+     strUser += `<p class="card-text">Email : ${user.email}</p>`
      strUser += `<a href="${user.website}" class="btn btn-primary">More details</a>`
      strUser += `</div>`
     }
@@ -45,7 +45,7 @@ let printUsers = (users) => {
     let option = options.value;
   
 
-    if (option == "ID"){
+    if (option === "ID"){
             newUser = users.filter(user => {
            return String(user.id).includes(letter);
             })}
