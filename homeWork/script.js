@@ -39,32 +39,32 @@ let printUsers = (users) => {
  let searchUser = () =>{
 
     strUser = '';
-    let newUser = [];
- 
-    let letter = userId.value;
-    let option = options.value;
-  
+    let newUser = [],
+        letter = userId.value,
+        enterOpt = enterOption.value;
+        option = options.value;
+  console.log(enterOpt)
 
-    if (option === "ID"){
+    if     (enterOpt == "ID"){
             newUser = users.filter(user => {
-           return String(user.id).includes(letter);
+            return String(user.id).includes(letter);
             })}
        
-    else if (option == "Name"){
-             newUser = users.filter(item => {
-            return item.name.includes(letter);
+    else if (enterOpt == "Name"){
+             newUser = users.filter(user => {
+            return user.name.includes(letter);
              })}
-    else if (option == "Username"){
-            newUser = users.filter(item => {
-            return item.username.includes(letter);
+    else if (option == "Username" || enterOpt == "Username"){
+            newUser = users.filter(user => {
+            return user.username.includes(letter);
             })}
-    else if (option == "Email"){
-            newUser = users.filter(item => {
-            return item.email.includes(letter);
+    else if (option == "Email" || enterOpt == "Email"){
+            newUser = users.filter(user => {
+            return user.email.includes(letter);
              })}  
-    else if (option == "Phone"){
-            newUser = users.filter(item => {
-            return item.phone.includes(letter);
+    else if (option == "Phone" || enterOpt == "Phone"){
+            newUser = users.filter(user => {
+            return user.phone.includes(letter);
                  })};  
 
 
