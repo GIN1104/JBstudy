@@ -4,7 +4,7 @@
 let users = [];
 let strUser = "";
 let url = "https://jsonplaceholder.typicode.com/users";
-let getAllUssers = (url) =>{
+let getAllUsers = (url) =>{
     $.ajax({
         type: 'GET',
         datatype: 'json',
@@ -41,28 +41,29 @@ let printUsers = (users) => {
     strUser = '';
     let newUser = [],
         letter = userId.value,
-        enterOpt = enterOption.value;
+        enterOpt = enterOption.value.toUpperCase(); 
         option = options.value;
   console.log(enterOpt)
+  
 
     if     (enterOpt == "ID"){
             newUser = users.filter(user => {
             return String(user.id).includes(letter);
             })}
        
-    else if (enterOpt == "Name"){
+    else if (enterOpt == "NAME"){
              newUser = users.filter(user => {
             return user.name.includes(letter);
              })}
-    else if (option == "Username" || enterOpt == "Username"){
+    else if (option == "Username"|| enterOpt == "USERNAME"){
             newUser = users.filter(user => {
             return user.username.includes(letter);
             })}
-    else if (option == "Email" || enterOpt == "Email"){
+    else if (option == "Email" || enterOpt == "EMAIL"){
             newUser = users.filter(user => {
             return user.email.includes(letter);
              })}  
-    else if (option == "Phone" || enterOpt == "Phone"){
+    else if (option == "Phone" || enterOpt == "PHONE"){
             newUser = users.filter(user => {
             return user.phone.includes(letter);
                  })};  
@@ -73,4 +74,4 @@ let printUsers = (users) => {
         console.log(newUser);
     }
 
-getAllUssers(url);
+getAllUsers(url);
