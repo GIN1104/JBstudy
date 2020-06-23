@@ -42,8 +42,8 @@ let printUsers = (users) => {
     let newUser = [],
         letter = userId.value,
         enterOpt = enterOption.value.toUpperCase(); 
-        option = options.value;
-  console.log(enterOpt)
+       // option = options.value;
+  //console.log(user)
   
 
     if     (enterOpt == "ID"){
