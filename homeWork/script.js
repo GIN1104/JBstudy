@@ -4,6 +4,8 @@
 let users = [];
 let strUser = "";
 let url = "https://jsonplaceholder.typicode.com/users";
+let i = 0;
+let SelectedArray = [];
 let getAllUsers = (url) =>{
     $.ajax({
         type: 'GET',
@@ -29,7 +31,7 @@ let printUsers = (users) => {
      strUser += `<p class="card-text">Username : ${user.username}</p>`
      strUser += `<p class="card-text">Phone : ${user.phone}</p>`
      strUser += `<p class="card-text">Email : ${user.email}</p>`
-     strUser += `<a href="${user.website}" class="btn btn-primary">More details</a>`
+     strUser += `<a href="${user.website}" class="btn btn-primary">More details</a><br><input type="checkbox" onclick="CbClick(this, ${i}) id="exampleCheck${user.id}">`
      strUser += `</div>`
     }
     userDV.innerHTML = strUser;
@@ -73,5 +75,27 @@ let printUsers = (users) => {
              printUsers(newUser);
         console.log(newUser);
     }
+
+
+         function CbClick(cb, i) {
+          
+            if (cb.checked) {
+                i++;
+                SelectedArray.push(users[i]);
+            } else {
+
+                let Index = SelectedArray.findIndex(item => {
+                    return item.id == users[i].id;
+                })
+
+                SelectedArray.splice(Index, 1)
+                console.log("Find : ", SelectedArray)
+            }
+
+            console.log(SelectedArray)
+            //SelectedArray
+        }
+
+
 
 getAllUsers(url);
